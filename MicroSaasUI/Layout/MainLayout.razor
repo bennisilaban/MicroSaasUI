@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+<FluentDesignTheme StorageName="theme" />
+<FluentLayout>
+    <FluentHeader>
+        <FluentPersona Name="Bill Gates"
+                       Status="PresenceStatus.Available"
+                       StatusSize="PresenceBadgeSize.Small"
+                       StatusTitle="He is available"
+                       Image="icon-512.png"
+                       ImageSize="50px">
+        </FluentPersona>
+        <FluentAppBar>
+        </FluentAppBar>
+    </FluentHeader>
+    <FluentStack Class="main" Orientation="Orientation.Horizontal" Width="100%">
+        <NavMenu />
+        <FluentBodyContent Class="body-content">
+            <ErrorBoundary>
+                <ChildContent>
+                    <div class="content">
+                        @Body
+                    </div>
+                </ChildContent>
+                <ErrorContent Context="ex">
+                    <div class="blazor-error-boundary">@ex.Message</div>
+                </ErrorContent>
+            </ErrorBoundary>
+        </FluentBodyContent>
+    </FluentStack>
+    <FluentFooter>
+        <a href="https://www.fluentui-blazor.net" target="_blank">Base HRIS 2024</a>
+        <FluentSpacer />
+        <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor" target="_blank">About Blazor</a>
+    </FluentFooter>
+</FluentLayout>

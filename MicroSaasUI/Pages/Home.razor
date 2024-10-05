@@ -1,0 +1,24 @@
+﻿@page "/"
+<PageTitle>Home</PageTitle>
+<FluentDesignTheme @bind-Mode="@Mode"
+                   @bind-OfficeColor="@OfficeColor"
+                   StorageName="theme" />
+<FluentSelect Label="Theme"
+                Width="250px"
+                Items="@(Enum.GetValues<DesignThemeModes>())"
+                @bind-SelectedOption="@Mode" />
+<FluentSelect Label="Color"
+              Items="@(Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i))"
+              Height="200px"
+              Width="250px"
+              @bind-SelectedOption="@OfficeColor" />
+
+@code
+{
+    public DesignThemeModes Mode { get; set; }
+    public OfficeColor? OfficeColor { get; set; }
+    void PickRandomColor()
+    {
+        OfficeColor = OfficeColorUtilities.GetRandom();
+    }
+}

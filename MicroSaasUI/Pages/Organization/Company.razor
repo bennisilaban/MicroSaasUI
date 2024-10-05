@@ -1,0 +1,23 @@
+﻿@page "/Organization/Company"
+<PageTitle>Company</PageTitle>
+
+<FluentDataGrid Items="@_company">
+    <PropertyColumn Property="@(p => p.Code)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Phone)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Address)" Sortable="false" />
+</FluentDataGrid>
+
+@code {
+    record Companys(int Code, string Name, string Phone, string Address);
+
+    IQueryable<Companys> _company = new[]
+    {
+        new Companys(10895, "BCA", "1234", "Medan"),
+        new Companys(10944, "BNI", "2341", "Jakarta"),
+        new Companys(11203, "BRI", "4312", "Jambi"),
+        new Companys(11205, "BJB", "1231", "Pelembang"),
+        new Companys(11898, "SUMUT", "7342", "Medan"),
+        new Companys(12130, "Mandiri", "6341","Surabaya"),
+    }.AsQueryable();
+}

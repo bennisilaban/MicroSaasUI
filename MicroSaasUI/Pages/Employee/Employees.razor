@@ -1,0 +1,22 @@
+﻿@page "/Employee/Employees"
+<PageTitle>People</PageTitle>
+
+<FluentDataGrid Items="@_employee">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+</FluentDataGrid>
+
+@code {
+    record Employee(int PersonId, string Name, DateOnly BirthDate);
+
+    IQueryable<Employee> _employee = new[]
+    {
+        new Employee(10895, "Jean Martin", new DateOnly(1985, 3, 16)),
+        new Employee(10944, "António Langa", new DateOnly(1991, 12, 1)),
+        new Employee(11203, "Julie Smith", new DateOnly(1958, 10, 10)),
+        new Employee(11205, "Nur Sari", new DateOnly(1922, 4, 27)),
+        new Employee(11898, "Jose Hernandez", new DateOnly(2011, 5, 3)),
+        new Employee(12130, "Kenji Sato", new DateOnly(2004, 1, 9)),
+    }.AsQueryable();
+}

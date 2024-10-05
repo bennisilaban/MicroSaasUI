@@ -1,0 +1,23 @@
+﻿@page "/Organization/Department"
+<PageTitle>Department</PageTitle>
+
+<FluentDataGrid Items="@_department">
+    <PropertyColumn Property="@(p => p.Code)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Division)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Section)" Sortable="false" />
+</FluentDataGrid>
+
+@code {
+    record Departments(int Code, string Name, string Division, string Section);
+
+    IQueryable<Departments> _department = new[]
+    {
+        new Departments(10895, "HR", "HR GA", "HR"),
+        new Departments(10944, "Finance", "HR GA", "Payroll"),
+        new Departments(11203, "Spisy Development", "IT", "Development"),
+        new Departments(11205, "F&B", "Restoran", "Restoran"),
+        new Departments(11898, "Housekeeping", "HRGA", "Housekeeping"),
+        new Departments(12130, "IT", "IT","Infrastructure"),
+    }.AsQueryable();
+}
