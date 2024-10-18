@@ -1,0 +1,18 @@
+﻿@page "/Account/Login"
+
+<PageTitle>Login</PageTitle>
+
+<FluentEditForm>
+    <FluentTextField @bind-Value=_username>
+    <FluentIcon Value="@(new Icons.Regular.Size16.Person())" Slot="start" Color="Color.Neutral" />
+</FluentTextField>
+
+<h4>With end</h4>
+    <FluentTextField @bind-Value=_password TextFieldType="TextFieldType.Password">
+    <FluentIcon Value="@(new Icons.Regular.Size16.Password())" Color="@Color.Neutral" Slot="end" />
+</FluentTextField>
+
+</FluentEditForm>
+@code {
+    string? _username, _password;
+}

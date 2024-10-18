@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using ShareComponent.Account
+
 <PageTitle>Home</PageTitle>
 <FluentDesignTheme @bind-Mode="@Mode"
                    @bind-OfficeColor="@OfficeColor"
@@ -12,6 +14,8 @@
               Height="200px"
               Width="250px"
               @bind-SelectedOption="@OfficeColor" />
+
+<GridTable />
 
 @code
 {
